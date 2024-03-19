@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TipsContents xmlns="http://www.avendasys.com/tipsapiDefs/1.0">
+  <TipsHeader exportTime="Tue Mar 19 09:47:02 EDT 2024" version="6.12"/>
+  <AuthSources>
+    <AuthSource description="" name="Azure AD" isAuthorizationSource="true" type="Azure">
+      <NVPair value="300" name="cache_timeout"/>
+      <NVPair value="60" name="timeout"/>
+      <NVPair value="https://login.microsoftonline.com/%s/oauth2/v2.0/token/" name="base_url"/>
+      <NVPair value="de818f12-bbe1-48c2-a676-ff612bc18921" name="tenant_id"/>
+      <NVPair value="de818f12-bbe1-48c2-a676-ff612bc18921" name="client_id"/>
+      <NVPair value="client_secret" name="secret_type"/>
+      <NVPair value="" name="client_secret"/>
+      <NVPair value="ceded5be-7e8d-43bd-9bad-c3c959b28f94" name="secret_id"/>
+      <Filters>
+        <Filter paramValues="%{Authentication:Username}=" filterQuery="users/?select=mail,userPrincipalName,id,department,accountEnabled&amp;$filter=userPrincipalName%{Authentication:Username} /users/{id}/memberOf?select=displayName" filterName="Groups">
+          <Attributes>
+            <Attribute isUserAttr="false" isRole="false" attrDataType="String" aliasName="Groups" attrName="displayName"/>
+          </Attributes>
+        </Filter>
+      </Filters>
+    </AuthSource>
+  </AuthSources>
+</TipsContents>

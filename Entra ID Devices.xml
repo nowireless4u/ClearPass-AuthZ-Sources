@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TipsContents xmlns="http://www.avendasys.com/tipsapiDefs/1.0">
+  <TipsHeader exportTime="Tue Mar 19 09:47:28 EDT 2024" version="6.12"/>
+  <AuthSources>
+    <AuthSource description="" name="Azure AD Devices" isAuthorizationSource="true" type="Azure">
+      <NVPair value="300" name="cache_timeout"/>
+      <NVPair value="60" name="timeout"/>
+      <NVPair value="https://login.microsoftonline.com/%s/oauth2/v2.0/token/" name="base_url"/>
+      <NVPair value="de818f12-bbe1-48c2-a676-ff612bc18921" name="tenant_id"/>
+      <NVPair value="85a76dba-c700-4535-9c92-54564082ab39" name="client_id"/>
+      <NVPair value="client_secret" name="secret_type"/>
+      <NVPair value="" name="client_secret"/>
+      <Filters>
+        <Filter paramValues="" filterQuery="devices/?select=deviceId,id,accountEnabled&amp;$filter=deviceId%{Authentication:Username} /devices/{id}/memberOf?select=displayName" filterName="Groups">
+          <Attributes>
+            <Attribute isUserAttr="false" isRole="false" attrDataType="String" aliasName="Groups" attrName="displayName"/>
+          </Attributes>
+        </Filter>
+      </Filters>
+    </AuthSource>
+  </AuthSources>
+</TipsContents>
